@@ -3,18 +3,27 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
+    flake-utils.url = github:numtide/flake-utils;
 
-    neovim = {
-      url = github:neovim/neovim?dir=contrib;
+    neovim-nightly-overlay = {
+      url = github:nix-community/neovim-nightly-overlay;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, neovim, nixpkgs }: {
-    packages.aarch64-darwin.default = neovim.packages.aarch64-darwin.neovim;
-    apps.aarch64-darwin.default = {
-      type = "app";
-      program = "${neovim.packages.aarch64-darwin.neovim}/bin/nvim";
-    };
-  };
+  outputs = { self, flake-utils, nixpkgs, ... } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ inputs.neovim-nightly-overlay.overlay ];
+        };
+      in {
+        apps.default = {
+          type = "app";
+          program = "${pkgs.neovim-nightly}/bin/nvim";
+        };
+
+        packages.default = pkgs.neovim-nightly;
+      });
 }
