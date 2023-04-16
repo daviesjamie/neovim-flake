@@ -11,19 +11,25 @@
     };
   };
 
-  outputs = { self, flake-utils, nixpkgs, ... } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ inputs.neovim-nightly-overlay.overlay ];
-        };
-      in {
-        apps.default = {
-          type = "app";
-          program = "${pkgs.neovim-nightly}/bin/nvim";
-        };
+  outputs = {
+    self,
+    flake-utils,
+    nixpkgs,
+    ...
+  } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [inputs.neovim-nightly-overlay.overlay];
+      };
+    in {
+      apps.default = {
+        type = "app";
+        program = "${pkgs.neovim-nightly}/bin/nvim";
+      };
 
-        packages.default = pkgs.neovim-nightly;
-      });
+      formatter = pkgs.alejandra;
+
+      packages.default = pkgs.neovim-nightly;
+    });
 }
