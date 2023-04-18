@@ -1,11 +1,18 @@
-{
-  inputs,
-  plugins,
-  ...
-}: final: prev: let
+{inputs, ...}: final: prev: let
+  plugins =
+    builtins.filter
+    (s: (builtins.match "plugin:.*" s) != null)
+    (builtins.attrNames inputs);
+
+  plugName = inputName:
+    builtins.substring
+    (builtins.stringLength "plugin:")
+    (builtins.stringLength inputName)
+    inputName;
+
   buildPlug = name:
     prev.vimUtils.buildVimPluginFrom2Nix {
-      pname = name;
+      pname = plugName name;
       version = "master";
       src = builtins.getAttr name inputs;
     };

@@ -1,9 +1,8 @@
 {
   inputs,
   pkgs,
-  plugins,
   ...
 }: {
-  buildPluginOverlay = import ./buildPluginOverlay.nix {inherit inputs plugins;};
+  buildPluginOverlay = import ./buildPluginOverlay.nix {inherit inputs;};
   neovimBuilder = import ./neovimBuilder.nix {inherit pkgs;};
 }

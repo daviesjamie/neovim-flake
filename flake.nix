@@ -10,7 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rose-pine = {
+    "plugin:rose-pine" = {
       url = github:rose-pine/neovim;
       flake = false;
     };
@@ -23,13 +23,9 @@
     ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (system: let
-      lib = import ./lib {inherit inputs pkgs plugins;};
+      lib = import ./lib {inherit inputs pkgs;};
 
       neovimBuilder = lib.neovimBuilder;
-
-      plugins = [
-        "rose-pine"
-      ];
 
       pluginOverlay = lib.buildPluginOverlay;
 

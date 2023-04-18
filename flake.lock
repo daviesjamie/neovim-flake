@@ -111,15 +111,7 @@
         "type": "github"
       }
     },
-    "root": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixpkgs": "nixpkgs",
-        "rose-pine": "rose-pine"
-      }
-    },
-    "rose-pine": {
+    "plugin:rose-pine": {
       "flake": false,
       "locked": {
         "lastModified": 1681340544,
@@ -133,6 +125,14 @@
         "owner": "rose-pine",
         "repo": "neovim",
         "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "neovim-nightly-overlay": "neovim-nightly-overlay",
+        "nixpkgs": "nixpkgs",
+        "plugin:rose-pine": "plugin:rose-pine"
       }
     },
     "systems": {
