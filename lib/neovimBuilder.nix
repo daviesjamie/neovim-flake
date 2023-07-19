@@ -1,16 +1,28 @@
-{pkgs, ...}: {
-  customRC ? "",
-  viAlias ? true,
-  vimAlias ? true,
-  start ? builtins.attrValues pkgs.neovimPlugins,
-  opt ? [],
-}:
-pkgs.wrapNeovim pkgs.neovim-nightly {
-  configure = {
-    inherit customRC viAlias vimAlias;
+{
+  inputs,
+  pkgs,
+}: {nvimConfig}: let
+  neovimPackage = pkgs.neovim-nightly;
 
-    packages.jagd = {
-      inherit start opt;
-    };
+  neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
+    withPython3 = false;
+    withNodeJs = false;
+    withRuby = false;
+    extraPython3Packages = _: [];
+    extraLuaPackages = _: [];
+
+    plugins = builtins.attrValues pkgs.neovimPlugins;
+    customRC = "";
   };
-}
+
+  wrappedNeovim = pkgs.wrapNeovimUnstable neovimPackage (neovimConfig
+    // {
+      wrapRc = false;
+    });
+in
+  pkgs.writeShellApplication {
+    name = "nvim";
+    text = ''
+      XDG_CONFIG_HOME="${nvimConfig.nvimConfig.outPath}" "${wrappedNeovim}/bin/nvim" "$@"
+    '';
+  }

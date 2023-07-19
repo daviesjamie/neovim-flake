@@ -25,7 +25,7 @@
     flake-utils.lib.eachDefaultSystem (system: let
       lib = import ./lib {inherit inputs pkgs;};
 
-      neovimBuilder = lib.neovimBuilder;
+      nvimConfig = import ./config {inherit pkgs;};
 
       pluginOverlay = lib.buildPluginOverlay;
 
@@ -46,12 +46,7 @@
 
       packages = rec {
         default = neovimJagd;
-        neovimJagd = neovimBuilder {
-          customRC = ''
-            colorscheme rose-pine
-            echom "Hello from jagd"
-          '';
-        };
+        neovimJagd = lib.neovimBuilder {inherit nvimConfig;};
       };
     });
 }
