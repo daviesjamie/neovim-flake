@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
+    flake-utils.url = github:numtide/flake-utils;
     neovim = {
       url = github:neovim/neovim/stable?dir=contrib;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,46 +12,41 @@
 
   outputs = {
     self,
+    flake-utils,
     nixpkgs,
     neovim,
-  }: let
-    allSystems = [
-      "aarch64-darwin"
-      "aarch64-linux"
-      "x86_64-darwin"
-      "x86_64-linux"
-    ];
-
-    forEachSystem = f:
-      nixpkgs.lib.genAttrs allSystems (system:
-        f {
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [self.overlays.neovim];
-          };
-        });
-  in {
-    apps = forEachSystem ({pkgs}: {
-      default = {
-        type = "app";
-        program = "${self.packages.${pkgs.system}.default}/bin/nvim";
+  } @ inputs:
+    flake-utils.lib.eachDefaultSystem (system: let
+      lib = {
+        makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
       };
-    });
 
-    formatter = forEachSystem ({pkgs}: pkgs.alejandra);
-
-    lib = forEachSystem ({pkgs}: {
-      makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
-    });
-
-    overlays = {
-      neovim = final: prev: {
+      neovimOverlay = final: prev: {
         neovim = neovim.packages.${prev.system}.default;
       };
-    };
 
-    packages = forEachSystem ({pkgs}: {
-      default = (self.lib.${pkgs.system}.makeNeovimBundle {}).neovim;
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          neovimOverlay
+        ];
+      };
+    in rec {
+      apps.default = {
+        type = "app";
+        program = "${packages.default}/bin/nvim";
+      };
+
+      formatter = pkgs.alejandra;
+
+      lib = {
+        makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
+      };
+
+      overlays = {
+        neovim = neovimOverlay;
+      };
+
+      packages.default = (lib.makeNeovimBundle {}).neovim;
     });
-  };
 }
