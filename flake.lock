@@ -89,12 +89,29 @@
         "type": "github"
       }
     },
+    "plugin:vim-ledger": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1677156499,
+        "narHash": "sha256-4crxb9BMTv/cElWFG3w+TYGmCy8HtLi2fTu34kVMtCU=",
+        "owner": "ledger",
+        "repo": "vim-ledger",
+        "rev": "8e735f84d2d954229ee65f4dc71bfc0bec897d98",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ledger",
+        "repo": "vim-ledger",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
-        "plugin:rose-pine": "plugin:rose-pine"
+        "plugin:rose-pine": "plugin:rose-pine",
+        "plugin:vim-ledger": "plugin:vim-ledger"
       }
     },
     "systems": {

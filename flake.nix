@@ -13,6 +13,11 @@
       url = github:rose-pine/neovim;
       flake = false;
     };
+
+    "plugin:vim-ledger" = {
+      url = github:ledger/vim-ledger;
+      flake = false;
+    };
   };
 
   outputs = {
