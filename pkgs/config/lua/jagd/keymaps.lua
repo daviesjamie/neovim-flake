@@ -24,3 +24,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Stop accidentally pressing Q
 vim.keymap.set("n", "Q", "<nop>")
+
+-- Re-select selction after indenting in visual mode
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", ">", "<gv")

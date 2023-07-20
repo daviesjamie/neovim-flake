@@ -37,3 +37,6 @@ vim.opt.updatetime = 50
 
 -- Draw a hint for manually wrapping lines
 vim.opt.colorcolumn = "80"
+
+-- Highlight the line the cursor is on
+vim.opt.cursorline = true
