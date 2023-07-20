@@ -8,27 +8,38 @@
       url = github:neovim/neovim/stable?dir=contrib;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    "plugin:rose-pine" = {
+      url = github:rose-pine/neovim;
+      flake = false;
+    };
   };
 
   outputs = {
     self,
-    flake-utils,
     nixpkgs,
+    flake-utils,
     neovim,
+    ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (system: let
-      lib = {
-        makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
-      };
+      lib =
+        {
+          makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
+        }
+        // import ./lib {inherit inputs;};
 
       neovimOverlay = final: prev: {
         neovim = neovim.packages.${prev.system}.default;
       };
 
+      pluginOverlay = lib.buildPluginOverlay;
+
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
           neovimOverlay
+          pluginOverlay
         ];
       };
     in rec {

@@ -8,7 +8,7 @@
   isolated ? true,
   extraPackages ? [],
 }: let
-  plugins = [];
+  plugins = [pkgs.neovimPlugins.rose-pine];
 
   nvimConfig = pkgs.neovimUtils.makeNeovimConfig {
     inherit plugins viAlias vimAlias;
