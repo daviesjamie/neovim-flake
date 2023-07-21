@@ -17,5 +17,13 @@ vim.keymap.set("i", "<Tab>", "<C-r>=ledger#autocomplete_and_align()<CR>")
 vim.keymap.set("v", "<Tab>", ":LedgerAlign<CR>")
 
 -- Use [s and ]s to toggle through transaction statuses
-vim.keymap.set("n", "[s", ":call ledger#transaction_state_toggle(line('.'), '* !')<CR>")
-vim.keymap.set("n", "]s", ":call ledger#transaction_state_toggle(line('.'), '! *')<CR>")
+vim.keymap.set(
+    "n",
+    "[s",
+    ":call ledger#transaction_state_toggle(line('.'), '* !')<CR>"
+)
+vim.keymap.set(
+    "n",
+    "]s",
+    ":call ledger#transaction_state_toggle(line('.'), '! *')<CR>"
+)
