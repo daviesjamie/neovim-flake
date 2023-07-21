@@ -28,11 +28,9 @@
     ...
   } @ inputs:
     flake-utils.lib.eachDefaultSystem (system: let
-      lib =
-        {
+      lib = {
           makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
-        }
-        // import ./lib {inherit inputs;};
+        } // import ./lib {inherit inputs;};
 
       neovimOverlay = final: prev: {
         neovim = neovim.packages.${prev.system}.default;
@@ -51,6 +49,10 @@
       apps.default = {
         type = "app";
         program = "${packages.default}/bin/nvim";
+      };
+
+      devShell = pkgs.mkShell {
+        buildInputs = [ pkgs.stylua packages.default ];
       };
 
       formatter = pkgs.alejandra;
