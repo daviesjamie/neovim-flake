@@ -1,9 +1,11 @@
-{
+self: {
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (self.lib.${pkgs.system}) makeNeovimBundle;
   cfg = config.programs.nvim;
 in {
   options = {
@@ -56,7 +58,7 @@ in {
   };
 
   config = let
-    bundle = lib.makeNeovimBundle {
+    bundle = makeNeovimBundle {
       inherit (cfg) appName extraPackages isolated viAlias vimAlias;
     };
   in
