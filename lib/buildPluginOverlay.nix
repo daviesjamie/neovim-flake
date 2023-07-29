@@ -4,24 +4,24 @@
     (s: (builtins.match "plugin:.*" s) != null)
     (builtins.attrNames inputs);
 
-  plugName = inputName:
+  pluginName = inputName:
     builtins.substring
     (builtins.stringLength "plugin:")
     (builtins.stringLength inputName)
     inputName;
 
-  buildPlug = name:
+  buildPlugin = name:
     prev.vimUtils.buildVimPluginFrom2Nix {
-      pname = plugName name;
-      version = "master";
+      pname = pluginName name;
+      version = (builtins.getAttr name inputs).shortRev;
       src = builtins.getAttr name inputs;
     };
 in {
   neovimPlugins =
     builtins.listToAttrs
-    (map (name: {
-        inherit name;
-        value = buildPlug name;
+    (map (plugin: {
+        name = pluginName plugin;
+        value = buildPlugin plugin;
       })
       plugins);
 }

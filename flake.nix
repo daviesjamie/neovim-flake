@@ -3,10 +3,8 @@
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs/nixpkgs-unstable;
-    flake-utils.url = github:numtide/flake-utils;
-
-    neovim-nightly-overlay = {
-      url = github:nix-community/neovim-nightly-overlay;
+    neovim = {
+      url = github:neovim/neovim/stable?dir=contrib;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -14,44 +12,62 @@
       url = github:rose-pine/neovim;
       flake = false;
     };
+
+    "plugin:vim-ledger" = {
+      url = github:ledger/vim-ledger;
+      flake = false;
+    };
   };
 
-  outputs = {
-    self,
-    flake-utils,
-    nixpkgs,
-    ...
-  } @ inputs:
-    flake-utils.lib.eachDefaultSystem (system: let
-      lib = import ./lib {inherit inputs pkgs;};
+  outputs = {self, ...} @ inputs: let
+    forEachSystem = f:
+      inputs.nixpkgs.lib.genAttrs staticLib.allSystems (system:
+        f {
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [
+              neovimOverlay
+              pluginOverlay
+            ];
+          };
+        });
 
-      neovimBuilder = lib.neovimBuilder;
+    neovimOverlay = final: prev: {
+      neovim = inputs.neovim.packages.${prev.system}.default;
+    };
 
-      pluginOverlay = lib.buildPluginOverlay;
+    pluginOverlay = self.lib.buildPluginOverlay;
 
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          inputs.neovim-nightly-overlay.overlay
-          pluginOverlay
-        ];
-      };
-    in rec {
-      apps.default = {
+    staticLib = import ./lib {inherit inputs;};
+  in {
+    apps = forEachSystem ({pkgs}: {
+      default = {
         type = "app";
-        program = "${packages.default}/bin/nvim";
-      };
-
-      formatter = pkgs.alejandra;
-
-      packages = rec {
-        default = neovimJagd;
-        neovimJagd = neovimBuilder {
-          customRC = ''
-            colorscheme rose-pine
-            echom "Hello from jagd"
-          '';
-        };
+        program = "${self.packages.${pkgs.system}.default}/bin/nvim";
       };
     });
+
+    devShell = forEachSystem ({pkgs}:
+      pkgs.mkShell {
+        buildInputs = [pkgs.stylua self.packages.${pkgs.system}.default];
+      });
+
+    formatter = forEachSystem ({pkgs}: pkgs.alejandra);
+
+    homeManagerModules.default = import ./modules/home-manager.nix self;
+
+    lib =
+      forEachSystem ({pkgs}: {
+        makeNeovimBundle = args: (pkgs.callPackage ./pkgs/bundle.nix args);
+      })
+      // staticLib;
+
+    overlays = {
+      neovim = neovimOverlay;
+    };
+
+    packages = forEachSystem ({pkgs}: {
+      default = (self.lib.${pkgs.system}.makeNeovimBundle {}).neovim;
+    });
+  };
 }
