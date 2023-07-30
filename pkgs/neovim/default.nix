@@ -18,6 +18,7 @@
     pkgs.neovimPlugins.vim-ledger
     pkgs.neovimPlugins.vim-sleuth
     pkgs.neovimPlugins.vim-surround
+    pkgs.neovimPlugins.which-key-nvim
     pkgs.vimPlugins.nvim-treesitter.withAllGrammars
   ];
 

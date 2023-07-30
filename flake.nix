@@ -52,6 +52,11 @@
       url = github:tpope/vim-surround;
       flake = false;
     };
+
+    "plugin:which-key-nvim" = {
+      url = github:folke/which-key.nvim;
+      flake = false;
+    };
   };
 
   outputs = {self, ...} @ inputs: let

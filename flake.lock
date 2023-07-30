@@ -199,6 +199,22 @@
         "type": "github"
       }
     },
+    "plugin:which-key-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690570286,
+        "narHash": "sha256-B1+EHd2eH/EbD5Kip9PfhdPyyGfIkD6rsx0Z3rXvb5w=",
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "rev": "7ccf476ebe0445a741b64e36c78a682c1c6118b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "neovim": "neovim",
@@ -211,7 +227,8 @@
         "plugin:vim-fugitive": "plugin:vim-fugitive",
         "plugin:vim-ledger": "plugin:vim-ledger",
         "plugin:vim-sleuth": "plugin:vim-sleuth",
-        "plugin:vim-surround": "plugin:vim-surround"
+        "plugin:vim-surround": "plugin:vim-surround",
+        "plugin:which-key-nvim": "plugin:which-key-nvim"
       }
     }
   },
