@@ -9,8 +9,10 @@
   extraPackages ? [],
 }: let
   plugins = [
-    pkgs.neovimPlugins.vim-ledger
+    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    pkgs.neovimPlugins.nvim-treesitter-context
     pkgs.neovimPlugins.rose-pine
+    pkgs.neovimPlugins.vim-ledger
   ];
 
   nvimConfig = pkgs.neovimUtils.makeNeovimConfig {

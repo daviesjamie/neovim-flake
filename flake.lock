@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "plugin:nvim-treesitter-context": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689239188,
+        "narHash": "sha256-AJamiDezFK7l0bqb/VFm+pzBKugQNCmQ6JAWKmjH76g=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-context",
+        "rev": "6f8f788738b968f24a108ee599c5be0031f94f06",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-context",
+        "type": "github"
+      }
+    },
     "plugin:rose-pine": {
       "flake": false,
       "locked": {
@@ -91,6 +107,7 @@
       "inputs": {
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
+        "plugin:nvim-treesitter-context": "plugin:nvim-treesitter-context",
         "plugin:rose-pine": "plugin:rose-pine",
         "plugin:vim-ledger": "plugin:vim-ledger"
       }
