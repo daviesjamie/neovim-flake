@@ -103,6 +103,22 @@
         "type": "github"
       }
     },
+    "plugin:vim-fugitive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688507093,
+        "narHash": "sha256-JAlILa/7A9L10nWJh7IIfhdNn1tpVSKyhuc0oGTekvg=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "b3b838d690f315a503ec4af8c634bdff3b200aaf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "type": "github"
+      }
+    },
     "plugin:vim-ledger": {
       "flake": false,
       "locked": {
@@ -119,6 +135,38 @@
         "type": "github"
       }
     },
+    "plugin:vim-sleuth": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673378030,
+        "narHash": "sha256-ClltfSVuoNoq5EiWRVBsGz1mrr7FbafGDdgsavLgFVE=",
+        "owner": "tpope",
+        "repo": "vim-sleuth",
+        "rev": "1cc4557420f215d02c4d2645a748a816c220e99b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-sleuth",
+        "type": "github"
+      }
+    },
+    "plugin:vim-surround": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666730476,
+        "narHash": "sha256-DZE5tkmnT+lAvx/RQHaDEgEJXRKsy56KJY919xiH1lE=",
+        "owner": "tpope",
+        "repo": "vim-surround",
+        "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-surround",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "neovim": "neovim",
@@ -126,7 +174,10 @@
         "plugin:comment-nvim": "plugin:comment-nvim",
         "plugin:nvim-treesitter-context": "plugin:nvim-treesitter-context",
         "plugin:rose-pine": "plugin:rose-pine",
-        "plugin:vim-ledger": "plugin:vim-ledger"
+        "plugin:vim-fugitive": "plugin:vim-fugitive",
+        "plugin:vim-ledger": "plugin:vim-ledger",
+        "plugin:vim-sleuth": "plugin:vim-sleuth",
+        "plugin:vim-surround": "plugin:vim-surround"
       }
     }
   },

@@ -23,8 +23,23 @@
       flake = false;
     };
 
+    "plugin:vim-fugitive" = {
+      url = github:tpope/vim-fugitive;
+      flake = false;
+    };
+
     "plugin:vim-ledger" = {
       url = github:ledger/vim-ledger;
+      flake = false;
+    };
+
+    "plugin:vim-sleuth" = {
+      url = github:tpope/vim-sleuth;
+      flake = false;
+    };
+
+    "plugin:vim-surround" = {
+      url = github:tpope/vim-surround;
       flake = false;
     };
   };
