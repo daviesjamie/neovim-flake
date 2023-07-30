@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    "plugin:nvim-treesitter-context" = {
+      url = github:nvim-treesitter/nvim-treesitter-context;
+      flake = false;
+    };
+
     "plugin:rose-pine" = {
       url = github:rose-pine/neovim;
       flake = false;

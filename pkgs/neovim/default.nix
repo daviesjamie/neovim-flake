@@ -10,6 +10,7 @@
 }: let
   plugins = [
     pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    pkgs.neovimPlugins.nvim-treesitter-context
     pkgs.neovimPlugins.rose-pine
     pkgs.neovimPlugins.vim-ledger
   ];
