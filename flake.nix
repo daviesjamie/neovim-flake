@@ -23,6 +23,16 @@
       flake = false;
     };
 
+    "plugin:plenary-nvim" = {
+      url = github:nvim-lua/plenary.nvim;
+      flake = false;
+    };
+
+    "plugin:telescope-nvim" = {
+      url = github:nvim-telescope/telescope.nvim;
+      flake = false;
+    };
+
     "plugin:vim-fugitive" = {
       url = github:tpope/vim-fugitive;
       flake = false;

@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- Open netrw with <leader>pv (mnemonic: "project view")
+-- Open netrw with <leader>pv (mnemonic: "Project View")
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Move visual selection up/down with K/J
