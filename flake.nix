@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    "plugin:comment-nvim" = {
+      url = github:numToStr/Comment.nvim;
+      flake = false;
+    };
+
     "plugin:nvim-treesitter-context" = {
       url = github:nvim-treesitter/nvim-treesitter-context;
       flake = false;
