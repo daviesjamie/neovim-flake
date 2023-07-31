@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "plugin:comment-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686546603,
+        "narHash": "sha256-XM9yhp+SGxfAOdN/eDunzM0TMoCJhVth3wpFKNCGf3g=",
+        "owner": "numToStr",
+        "repo": "Comment.nvim",
+        "rev": "176e85eeb63f1a5970d6b88f1725039d85ca0055",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numToStr",
+        "repo": "Comment.nvim",
+        "type": "github"
+      }
+    },
     "plugin:nvim-treesitter-context": {
       "flake": false,
       "locked": {
@@ -68,6 +84,22 @@
       "original": {
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-context",
+        "type": "github"
+      }
+    },
+    "plugin:plenary-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1689589150,
+        "narHash": "sha256-oRtNcURQzrIRS3D88tWAl3HuFHxVJr8m/zzL7xoa/II=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "267282a9ce242bbb0c5dc31445b6d353bed978bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
         "type": "github"
       }
     },
@@ -87,6 +119,38 @@
         "type": "github"
       }
     },
+    "plugin:telescope-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690663693,
+        "narHash": "sha256-okyOr5t0e+oV3mY7Yq1ad/7f6qEEDS/ZQrqJcjktYRI=",
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "rev": "b6fccfb0f7589a87587875206786daccba62acc3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "plugin:vim-fugitive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688507093,
+        "narHash": "sha256-JAlILa/7A9L10nWJh7IIfhdNn1tpVSKyhuc0oGTekvg=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "b3b838d690f315a503ec4af8c634bdff3b200aaf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "type": "github"
+      }
+    },
     "plugin:vim-ledger": {
       "flake": false,
       "locked": {
@@ -103,13 +167,68 @@
         "type": "github"
       }
     },
+    "plugin:vim-sleuth": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673378030,
+        "narHash": "sha256-ClltfSVuoNoq5EiWRVBsGz1mrr7FbafGDdgsavLgFVE=",
+        "owner": "tpope",
+        "repo": "vim-sleuth",
+        "rev": "1cc4557420f215d02c4d2645a748a816c220e99b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-sleuth",
+        "type": "github"
+      }
+    },
+    "plugin:vim-surround": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1666730476,
+        "narHash": "sha256-DZE5tkmnT+lAvx/RQHaDEgEJXRKsy56KJY919xiH1lE=",
+        "owner": "tpope",
+        "repo": "vim-surround",
+        "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-surround",
+        "type": "github"
+      }
+    },
+    "plugin:which-key-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690570286,
+        "narHash": "sha256-B1+EHd2eH/EbD5Kip9PfhdPyyGfIkD6rsx0Z3rXvb5w=",
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "rev": "7ccf476ebe0445a741b64e36c78a682c1c6118b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
+        "plugin:comment-nvim": "plugin:comment-nvim",
         "plugin:nvim-treesitter-context": "plugin:nvim-treesitter-context",
+        "plugin:plenary-nvim": "plugin:plenary-nvim",
         "plugin:rose-pine": "plugin:rose-pine",
-        "plugin:vim-ledger": "plugin:vim-ledger"
+        "plugin:telescope-nvim": "plugin:telescope-nvim",
+        "plugin:vim-fugitive": "plugin:vim-fugitive",
+        "plugin:vim-ledger": "plugin:vim-ledger",
+        "plugin:vim-sleuth": "plugin:vim-sleuth",
+        "plugin:vim-surround": "plugin:vim-surround",
+        "plugin:which-key-nvim": "plugin:which-key-nvim"
       }
     }
   },

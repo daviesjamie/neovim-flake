@@ -9,10 +9,17 @@
   extraPackages ? [],
 }: let
   plugins = [
-    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    pkgs.neovimPlugins.comment-nvim
     pkgs.neovimPlugins.nvim-treesitter-context
+    pkgs.neovimPlugins.plenary-nvim
     pkgs.neovimPlugins.rose-pine
+    pkgs.neovimPlugins.telescope-nvim
+    pkgs.neovimPlugins.vim-fugitive
     pkgs.neovimPlugins.vim-ledger
+    pkgs.neovimPlugins.vim-sleuth
+    pkgs.neovimPlugins.vim-surround
+    pkgs.neovimPlugins.which-key-nvim
+    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
   ];
 
   nvimConfig = pkgs.neovimUtils.makeNeovimConfig {

@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    "plugin:comment-nvim" = {
+      url = github:numToStr/Comment.nvim;
+      flake = false;
+    };
+
     "plugin:nvim-treesitter-context" = {
       url = github:nvim-treesitter/nvim-treesitter-context;
       flake = false;
@@ -18,8 +23,38 @@
       flake = false;
     };
 
+    "plugin:plenary-nvim" = {
+      url = github:nvim-lua/plenary.nvim;
+      flake = false;
+    };
+
+    "plugin:telescope-nvim" = {
+      url = github:nvim-telescope/telescope.nvim;
+      flake = false;
+    };
+
+    "plugin:vim-fugitive" = {
+      url = github:tpope/vim-fugitive;
+      flake = false;
+    };
+
     "plugin:vim-ledger" = {
       url = github:ledger/vim-ledger;
+      flake = false;
+    };
+
+    "plugin:vim-sleuth" = {
+      url = github:tpope/vim-sleuth;
+      flake = false;
+    };
+
+    "plugin:vim-surround" = {
+      url = github:tpope/vim-surround;
+      flake = false;
+    };
+
+    "plugin:which-key-nvim" = {
+      url = github:folke/which-key.nvim;
       flake = false;
     };
   };
