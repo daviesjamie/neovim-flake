@@ -40,3 +40,22 @@ vim.opt.colorcolumn = "80"
 
 -- Highlight the line the cursor is on
 vim.opt.cursorline = true
+
+-- Search ignoring case unless search contains uppercase characters
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Prefer splitting windows to the right and the bottom
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+vim.opt.formatoptions = vim.opt.formatoptions
+    - "a" -- Don't automatically format
+    - "t" -- Don't auto-wrap text
+    + "c" -- Auto-wrap comments to textwidth
+    + "q" -- Allow comments to be formatted with `gq`
+    - "o" -- Don't insert comment when `o` or `O` -ing on a comment
+    + "r" -- But do continue a comment when hitting enter
+    - "n" -- Recognise numbered lists when formatting
+    + "j" -- Remove comment leaders when joining lines
+    - "2" -- Don't allow paragraphs to have a different indent on first line
