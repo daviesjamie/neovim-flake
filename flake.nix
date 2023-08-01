@@ -13,6 +13,11 @@
       flake = false;
     };
 
+    "plugin:nvim-lspconfig" = {
+      url = github:neovim/nvim-lspconfig;
+      flake = false;
+    };
+
     "plugin:nvim-treesitter-context" = {
       url = github:nvim-treesitter/nvim-treesitter-context;
       flake = false;

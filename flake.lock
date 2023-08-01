@@ -71,6 +71,22 @@
         "type": "github"
       }
     },
+    "plugin:nvim-lspconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690356683,
+        "narHash": "sha256-Ama9nLC/T1wJWal6bKvgY0ywUUiJ5VLuIxoY1xbJKtY=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "b6091272422bb0fbd729f7f5d17a56d37499c54f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "type": "github"
+      }
+    },
     "plugin:nvim-treesitter-context": {
       "flake": false,
       "locked": {
@@ -220,6 +236,7 @@
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
         "plugin:comment-nvim": "plugin:comment-nvim",
+        "plugin:nvim-lspconfig": "plugin:nvim-lspconfig",
         "plugin:nvim-treesitter-context": "plugin:nvim-treesitter-context",
         "plugin:plenary-nvim": "plugin:plenary-nvim",
         "plugin:rose-pine": "plugin:rose-pine",

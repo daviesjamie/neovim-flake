@@ -10,6 +10,7 @@
 }: let
   plugins = [
     pkgs.neovimPlugins.comment-nvim
+    pkgs.neovimPlugins.nvim-lspconfig
     pkgs.neovimPlugins.nvim-treesitter-context
     pkgs.neovimPlugins.plenary-nvim
     pkgs.neovimPlugins.rose-pine
