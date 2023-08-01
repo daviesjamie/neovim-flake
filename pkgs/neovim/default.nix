@@ -8,20 +8,33 @@
   isolated ? true,
   extraPackages ? [],
 }: let
-  plugins = [
-    pkgs.neovimPlugins.comment-nvim
-    pkgs.neovimPlugins.nvim-lspconfig
-    pkgs.neovimPlugins.nvim-treesitter-context
-    pkgs.neovimPlugins.plenary-nvim
-    pkgs.neovimPlugins.rose-pine
-    pkgs.neovimPlugins.telescope-nvim
-    pkgs.neovimPlugins.vim-fugitive
-    pkgs.neovimPlugins.vim-ledger
-    pkgs.neovimPlugins.vim-sleuth
-    pkgs.neovimPlugins.vim-surround
-    pkgs.neovimPlugins.which-key-nvim
-    pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-  ];
+  lsps =
+    (with pkgs; [
+      lua-language-server
+      nil
+    ])
+    ++ (with pkgs.nodePackages; [
+      bash-language-server
+      typescript-language-server
+    ]);
+
+  runtimePackages = lsps ++ extraPackages;
+
+  plugins =
+    (with pkgs.neovimPlugins; [
+      comment-nvim
+      nvim-lspconfig
+      nvim-treesitter-context
+      plenary-nvim
+      rose-pine
+      telescope-nvim
+      vim-fugitive
+      vim-ledger
+      vim-sleuth
+      vim-surround
+      which-key-nvim
+    ])
+    ++ [pkgs.vimPlugins.nvim-treesitter.withAllGrammars];
 
   nvimConfig = pkgs.neovimUtils.makeNeovimConfig {
     inherit plugins viAlias vimAlias;
@@ -35,8 +48,6 @@
     data = "/tmp/nvim-data";
     state = "/tmp/nvim-state";
   };
-
-  hasExtraPackages = extraPackages != [];
 in
   pkgs.wrapNeovimUnstable pkgs.neovim
   (
@@ -44,7 +55,7 @@ in
     // {
       wrapperArgs = lib.escapeShellArgs (nvimConfig.wrapperArgs
         ++ ["--set" "NVIM_APPNAME" appName]
-        ++ lib.optionals hasExtraPackages ["--suffix" "PATH" ":" "${lib.makeBinPath extraPackages}"]
+        ++ ["--suffix" "PATH" ":" "${lib.makeBinPath runtimePackages}"]
         ++ lib.optionals isolated [
           "--set"
           "XDG_CONFIG_HOME"
