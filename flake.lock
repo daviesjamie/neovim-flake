@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "plugin:cmp-nvim-lsp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687494203,
+        "narHash": "sha256-mU0soCz79erJXMMqD/FyrJZ0mu2n6fE0deymPzQlxts=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "rev": "44b16d11215dce86f253ce0c30949813c0a90765",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
     "plugin:comment-nvim": {
       "flake": false,
       "locked": {
@@ -68,6 +84,55 @@
       "original": {
         "owner": "numToStr",
         "repo": "Comment.nvim",
+        "type": "github"
+      }
+    },
+    "plugin:lsp-zero": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690547138,
+        "narHash": "sha256-zIb/7s/xBYEYtTBPtPQUyktSu5aHG+mlWoYRmoo+vu4=",
+        "owner": "VonHeikemen",
+        "repo": "lsp-zero.nvim",
+        "rev": "ef56e4c6cbcf95e807a89140ab1c87d22f5ea067",
+        "type": "github"
+      },
+      "original": {
+        "owner": "VonHeikemen",
+        "ref": "dev-v3",
+        "repo": "lsp-zero.nvim",
+        "type": "github"
+      }
+    },
+    "plugin:luasnip": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690382684,
+        "narHash": "sha256-v4nCOg7FHBkpKJQZUimMi5ViB2spznngFSA7DcTYBkM=",
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "rev": "e81cbe6004051c390721d8570a4a0541ceb0df10",
+        "type": "github"
+      },
+      "original": {
+        "owner": "L3MON4D3",
+        "repo": "LuaSnip",
+        "type": "github"
+      }
+    },
+    "plugin:nvim-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688965049,
+        "narHash": "sha256-Hq6YUfMQo1rHoay3/NieGCne7U/f06GwUPhN2HO0PdQ=",
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
+        "rev": "c4e491a87eeacf0408902c32f031d802c7eafce8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "nvim-cmp",
         "type": "github"
       }
     },
@@ -235,7 +300,11 @@
       "inputs": {
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
+        "plugin:cmp-nvim-lsp": "plugin:cmp-nvim-lsp",
         "plugin:comment-nvim": "plugin:comment-nvim",
+        "plugin:lsp-zero": "plugin:lsp-zero",
+        "plugin:luasnip": "plugin:luasnip",
+        "plugin:nvim-cmp": "plugin:nvim-cmp",
         "plugin:nvim-lspconfig": "plugin:nvim-lspconfig",
         "plugin:nvim-treesitter-context": "plugin:nvim-treesitter-context",
         "plugin:plenary-nvim": "plugin:plenary-nvim",

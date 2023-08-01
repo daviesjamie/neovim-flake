@@ -22,7 +22,11 @@
 
   plugins =
     (with pkgs.neovimPlugins; [
+      cmp-nvim-lsp
       comment-nvim
+      lsp-zero
+      luasnip
+      nvim-cmp
       nvim-lspconfig
       nvim-treesitter-context
       plenary-nvim

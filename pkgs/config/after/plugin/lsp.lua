@@ -1,6 +1,10 @@
-local lspconfig = require("lspconfig")
+local lsp = require("lsp-zero").preset({})
 
-lspconfig.bashls.setup({})
-lspconfig.lua_ls.setup({})
-lspconfig.nil_ls.setup({})
-lspconfig.tsserver.setup({})
+lsp.setup_servers({
+    "bashls",
+    "lua_ls",
+    "nil_ls",
+    "tsserver",
+})
+
+require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
