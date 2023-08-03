@@ -54,6 +54,13 @@ lsp.on_attach(function(client, bufnr)
     end, opts("Lsp: find all References"))
 end)
 
+-- Turn off the semantic highlighting (treesitter seems to be way better)
+lsp.set_server_config({
+    on_init = function(client)
+        client.server_capabilities.semanticTokensProvider = nil
+    end,
+})
+
 lsp.setup_servers({
     "bashls",
     "lua_ls",
