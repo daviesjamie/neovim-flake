@@ -8,8 +8,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    "plugin:cmp-buffer" = {
+      url = github:hrsh7th/cmp-buffer;
+      flake = false;
+    };
+
     "plugin:cmp-nvim-lsp" = {
       url = github:hrsh7th/cmp-nvim-lsp;
+      flake = false;
+    };
+
+    "plugin:cmp-nvim-lua" = {
+      url = github:hrsh7th/cmp-nvim-lua;
+      flake = false;
+    };
+
+    "plugin:cmp-path" = {
+      url = github:hrsh7th/cmp-path;
       flake = false;
     };
 

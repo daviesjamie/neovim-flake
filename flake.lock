@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "plugin:cmp-buffer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1660101488,
+        "narHash": "sha256-dG4U7MtnXThoa/PD+qFtCt76MQ14V1wX8GMYcvxEnbM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "rev": "3022dbc9166796b644a841a02de8dd1cc1d311fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-buffer",
+        "type": "github"
+      }
+    },
     "plugin:cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -68,6 +84,38 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "cmp-nvim-lsp",
+        "type": "github"
+      }
+    },
+    "plugin:cmp-nvim-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1681458603,
+        "narHash": "sha256-6eXOK1mVK06TN1akhN42Bo4wQpeen3rk3b/m7iVmGKM=",
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lua",
+        "rev": "f12408bdb54c39c23e67cab726264c10db33ada8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-nvim-lua",
+        "type": "github"
+      }
+    },
+    "plugin:cmp-path": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664784283,
+        "narHash": "sha256-thppiiV3wjIaZnAXmsh7j3DUc6ceSCvGzviwFUnoPaI=",
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
+        "rev": "91ff86cd9c29299a64f968ebb45846c485725f23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-path",
         "type": "github"
       }
     },
@@ -300,7 +348,10 @@
       "inputs": {
         "neovim": "neovim",
         "nixpkgs": "nixpkgs",
+        "plugin:cmp-buffer": "plugin:cmp-buffer",
         "plugin:cmp-nvim-lsp": "plugin:cmp-nvim-lsp",
+        "plugin:cmp-nvim-lua": "plugin:cmp-nvim-lua",
+        "plugin:cmp-path": "plugin:cmp-path",
         "plugin:comment-nvim": "plugin:comment-nvim",
         "plugin:lsp-zero": "plugin:lsp-zero",
         "plugin:luasnip": "plugin:luasnip",

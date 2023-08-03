@@ -1,6 +1,27 @@
 local lsp = require("lsp-zero").preset({})
 
 -- Enable autocomplete
+lsp.extend_cmp()
+local cmp = require("cmp")
+
+cmp.setup({
+    -- Disable autocompletion, require manual trigger
+    completion = {
+        autocomplete = false,
+    },
+    -- Use ctrl+space to trigger completion menu
+    mapping = {
+        ["<C-Space>"] = cmp.mapping.complete(),
+    },
+    -- Set sources (and priority) to complete from
+    sources = {
+        { name = "path" },
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+    },
+})
+
 lsp.on_attach(function(client, bufnr)
     local opts = function(desc)
         return {

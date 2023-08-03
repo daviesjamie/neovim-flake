@@ -22,7 +22,10 @@
 
   plugins =
     (with pkgs.neovimPlugins; [
+      cmp-buffer
       cmp-nvim-lsp
+      cmp-nvim-lua
+      cmp-path
       comment-nvim
       lsp-zero
       luasnip
