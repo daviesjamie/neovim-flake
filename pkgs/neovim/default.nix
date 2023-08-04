@@ -35,6 +35,7 @@
       plenary-nvim
       rose-pine
       telescope-nvim
+      trouble-nvim
       vim-fugitive
       vim-ledger
       vim-sleuth

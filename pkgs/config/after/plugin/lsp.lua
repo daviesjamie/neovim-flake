@@ -66,13 +66,23 @@ lsp.on_attach(function(client, bufnr)
         vim.lsp.buf.code_action()
     end, opts("Lsp: code Action"))
 
-    vim.keymap.set("n", "<leader>lr", function()
-        vim.lsp.buf.rename()
-    end, opts("Lsp: Rename symbol"))
+    vim.keymap.set(
+        "n",
+        "<leader>ld",
+        "<cmd>TroubleToggle document_diagnostics<cr>",
+        opts("Lsp: show all Diagnostics in trouble.nvim")
+    )
+
+    vim.keymap.set(
+        "n",
+        "<leader>lr",
+        "<cmd>TroubleToggle lsp_references<cr>",
+        opts("Lsp: find all References in trouble.nvim")
+    )
 
     vim.keymap.set("n", "<leader>lR", function()
-        vim.lsp.buf.references()
-    end, opts("Lsp: find all References"))
+        vim.lsp.buf.rename()
+    end, opts("Lsp: Rename symbol"))
 end)
 
 -- Turn off the semantic highlighting (treesitter seems to be way better)

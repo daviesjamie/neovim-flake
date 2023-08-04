@@ -264,6 +264,22 @@
         "type": "github"
       }
     },
+    "plugin:trouble-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690614197,
+        "narHash": "sha256-Ee0AM8S/A8DU0hyOnZoKC1hkW0fvk0A+c3WGvPqmKcU=",
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "rev": "40aad004f53ae1d1ba91bcc5c29d59f07c5f01d3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "type": "github"
+      }
+    },
     "plugin:vim-fugitive": {
       "flake": false,
       "locked": {
@@ -361,6 +377,7 @@
         "plugin:plenary-nvim": "plugin:plenary-nvim",
         "plugin:rose-pine": "plugin:rose-pine",
         "plugin:telescope-nvim": "plugin:telescope-nvim",
+        "plugin:trouble-nvim": "plugin:trouble-nvim",
         "plugin:vim-fugitive": "plugin:vim-fugitive",
         "plugin:vim-ledger": "plugin:vim-ledger",
         "plugin:vim-sleuth": "plugin:vim-sleuth",

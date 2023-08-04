@@ -73,6 +73,11 @@
       flake = false;
     };
 
+    "plugin:trouble-nvim" = {
+      url = github:folke/trouble.nvim;
+      flake = false;
+    };
+
     "plugin:vim-fugitive" = {
       url = github:tpope/vim-fugitive;
       flake = false;
