@@ -8,8 +8,48 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    "plugin:cmp-buffer" = {
+      url = github:hrsh7th/cmp-buffer;
+      flake = false;
+    };
+
+    "plugin:cmp-nvim-lsp" = {
+      url = github:hrsh7th/cmp-nvim-lsp;
+      flake = false;
+    };
+
+    "plugin:cmp-nvim-lua" = {
+      url = github:hrsh7th/cmp-nvim-lua;
+      flake = false;
+    };
+
+    "plugin:cmp-path" = {
+      url = github:hrsh7th/cmp-path;
+      flake = false;
+    };
+
     "plugin:comment-nvim" = {
       url = github:numToStr/Comment.nvim;
+      flake = false;
+    };
+
+    "plugin:lsp-zero" = {
+      url = github:VonHeikemen/lsp-zero.nvim/dev-v3;
+      flake = false;
+    };
+
+    "plugin:luasnip" = {
+      url = github:L3MON4D3/LuaSnip;
+      flake = false;
+    };
+
+    "plugin:nvim-cmp" = {
+      url = github:hrsh7th/nvim-cmp;
+      flake = false;
+    };
+
+    "plugin:nvim-lspconfig" = {
+      url = github:neovim/nvim-lspconfig;
       flake = false;
     };
 
@@ -18,18 +58,23 @@
       flake = false;
     };
 
-    "plugin:rose-pine" = {
-      url = github:rose-pine/neovim;
-      flake = false;
-    };
-
     "plugin:plenary-nvim" = {
       url = github:nvim-lua/plenary.nvim;
       flake = false;
     };
 
+    "plugin:rose-pine" = {
+      url = github:rose-pine/neovim;
+      flake = false;
+    };
+
     "plugin:telescope-nvim" = {
       url = github:nvim-telescope/telescope.nvim;
+      flake = false;
+    };
+
+    "plugin:trouble-nvim" = {
+      url = github:folke/trouble.nvim;
       flake = false;
     };
 

@@ -1,3 +1,15 @@
+local telescope = require("telescope")
+local trouble = require("trouble.providers.telescope")
+
+telescope.setup({
+    defaults = {
+        mappings = {
+            i = { ["<C-t>"] = trouble.open_with_trouble },
+            n = { ["<C-t>"] = trouble.open_with_trouble },
+        },
+    },
+})
+
 local builtin = require("telescope.builtin")
 
 -- Find files
